@@ -11,8 +11,10 @@
     <div class="main-container">
         <h2>Password Generator</h2>
         <div class="password-result-container">
-            <h1>P@R%$^FGG11</h1>
-            <i class="fa fa-copy copy-password-icon"></i>
+            <h1 id="password">P@R%$^FGG11</h1>
+            <button onclick="copyPassword()" style="background-color: transparent; border: none;">
+                <i class="fa fa-copy copy-password-icon"></i>
+            </button>
         </div>
         <div class="password-generator-container">
             <div class="character-length-container">
@@ -23,19 +25,19 @@
             <div class="password-constraint-checkbox">
                 <ul>
                     <li>
-                        <input type="checkbox" onclick="difficultyChange()">
+                        <input id="uppercase" type="checkbox" onclick="editConstraints()">
                         <h3>Include uppercase letters</h2>
                     </li>
                     <li>
-                        <input type="checkbox">
+                        <input id="lowercase" type="checkbox">
                         <h3>Include lowercase letters</h2>
                     </li>
                     <li>
-                        <input type="checkbox">
+                        <input id="numbers" type="checkbox">
                         <h3>Include numbers</h2>
                     </li>
                     <li>
-                        <input type="checkbox">
+                        <input id="symbols" type="checkbox">
                         <h3>Include symbols</h2>
                     </li>
                 </ul>
@@ -43,14 +45,14 @@
             <div class="strength-container">
                 <h3>STRENGTH</h3>
                 <div class="difficulty-level-container">
-                    <h2>EASY</h2>
-                    <div class="difficulty-level very-easy easy medium hard"></div>
-                    <div class="difficulty-level easy medium hard"></div>
-                    <div class="difficulty-level medium hard"></div>
-                    <div class="difficulty-level hard"></div>
+                    <h2>VERY EASY</h2>
+                    <div id="very-easy" class="difficulty-level"></div>
+                    <div id="easy" class="difficulty-level"></div>
+                    <div id="medium" class="difficulty-level"></div>
+                    <div id="hard" class="difficulty-level"></div>
                 </div>
             </div>
-            <button class="generate-button">
+            <button onclick="generatePassword()" class="generate-button">
                 GENERATE ->
             </button>
         </div>

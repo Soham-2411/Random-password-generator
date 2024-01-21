@@ -64,6 +64,10 @@ body {
     color: #b9efc3;
 }
 
+i:hover{
+    cursor: pointer;
+}
+
 .password-length-slider {
     padding-top: 25px;
     width: 100%;
