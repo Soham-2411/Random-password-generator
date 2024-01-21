@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random password generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="main-container">
+        <h2>Password Generator</h2>
+        <div class="password-result-container">
+            <h1>P@R%$^FGG11</h1>
+            <i class="fa fa-copy copy-password-icon"></i>
+        </div>
+        <div class="password-generator-container">
+            <div class="character-length-container">
+                <h3>Character Length</h4>
+                <h2 id="length-display">10</h3>
+            </div>
+                <input oninput="onSliderChange()" type="range" min="1" max="20" value="10" class="slider" id="password-length-input">
+            <div class="password-constraint-checkbox">
+                <ul>
+                    <li>
+                        <input type="checkbox" onclick="difficultyChange()">
+                        <h3>Include uppercase letters</h2>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <h3>Include lowercase letters</h2>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <h3>Include numbers</h2>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <h3>Include symbols</h2>
+                    </li>
+                </ul>
+            </div>
+            <div class="strength-container">
+                <h3>STRENGTH</h3>
+                <div class="difficulty-level-container">
+                    <h2>EASY</h2>
+                    <div class="difficulty-level very-easy easy medium hard"></div>
+                    <div class="difficulty-level easy medium hard"></div>
+                    <div class="difficulty-level medium hard"></div>
+                    <div class="difficulty-level hard"></div>
+                </div>
+            </div>
+            <button class="generate-button">
+                GENERATE ->
+            </button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

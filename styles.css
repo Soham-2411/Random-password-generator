@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace, sans-serif;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+body {
+    background: linear-gradient(#15141c, #09080d);
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    /* height: 100vh; */
+    background-color: transparent;
+}
+
+.password-result-container,
+.password-generator-container {
+    display: flex;
+    background-color: #24232b;
+    padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    margin: 20px;
+}
+
+.password-generator-container {
+    flex-direction: column;
+}
+
+.character-length-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.character-length-container h2 {
+    color: #b9efc3;
+}
+
+.password-result-container h1 {
+    color: rgb(150, 150, 150);
+}
+
+.password-result-container i {
+    font-size: 25px;
+    color: #b9efc3;
+}
+
+.password-length-slider {
+    padding-top: 25px;
+    width: 100%;
+}
+
+input[type="range"] {
+    margin: 25px 0px;
+    width: 100%;
+    appearance: none;
+    background-color: #15141c;
+    border-radius: 10px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background: #15141c;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-top: -5px;
+    border: 2px solid #b9efc3;
+    background: #15141c;
+    cursor: pointer;
+}
+
+.password-constraint-checkbox{
+    margin-left: 0px;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.password-constraint-checkbox li{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+}
+
+.password-constraint-checkbox h3{
+    margin-left: 20px;
+}
+
+input[type="checkbox"]{
+    height: 20px;
+    width: 20px;
+}
+
+.strength-container{
+    width: 100%;
+    background-color: #15141c;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+
+.strength-container h3{
+    color: rgb(150, 150, 150);
+}
+
+.strength-container h2{
+    margin-right: 20px;
+}
+
+.difficulty-level-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.difficulty-level{
+    margin-right: 10px;
+    height: 90%;
+    width: 10px;
+    background-color: transparent;
+    border: 2px solid white;
+}
+
+.veasy-difficulty{
+    background-color: green;
+}
+
+.generate-button{
+    margin-top: 25px;
+    padding: 15px;
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid #b9efc3;
+    color: white;
+    font-size: 20px;
+}
+
