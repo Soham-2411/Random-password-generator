@@ -1,15 +1,16 @@
 const uppercaseArray = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index));
 const lowercaseArray = Array.from({ length: 26 }, (_, index) => String.fromCharCode(97 + index));
-const numbersArray = Array.from({length: 10}, (_, index) => String(index));
+const numbersArray = Array.from({ length: 10 }, (_, index) => String(index));
 const symbolsArray = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', ';', ':', '<', '>', ',', '.', '?', '/'];
 
-const includeUppercase = true;
-const includeLowercase = true;
-const includeNumbers = false;
-const includeSymbols = true;
+let includeUppercase = true;
+let includeLowercase = true;
+let includeNumbers = true;
+let includeSymbols = false;
 let password = 'P@R%$^FGG11';
 
 const slider = document.getElementById('password-length-input');
+const generateButton = document.getElementById('generate-button');
 
 const onSliderChange = () => {
     const lengthDisplay = document.getElementById('length-display');
@@ -21,17 +22,45 @@ const copyPassword = async () => {
         await navigator.clipboard.writeText(password);
         console.log('Content copied to clipboard');
     } catch (err) {
-            console.error('Failed to copy: ', err);
+        console.error('Failed to copy: ', err);
     }
 }
 
-const editConstraints = () => {
-    const uppercase = document.getElementById('uppercase');
-    const lowercase = document.getElementById('lowercase');
-    const numbers = document.getElementById('numbers');
-    const symbols = document.getElementById('symbols'); 
-    console.log(uppercase.value);
-}
+
+const uppercaseCheckbox = document.getElementById('uppercase');
+uppercaseCheckbox.addEventListener('change', () => {
+    if (uppercaseCheckbox.checked) {
+        includeUppercase = true;
+    } else {
+        includeUppercase = false;
+    }
+});
+const lowercaseCheckbox = document.getElementById('lowercase');
+lowercaseCheckbox.addEventListener('change', () => {
+    if (lowercaseCheckbox.checked) {
+        includeLowercase = true;
+    } else {
+        includeLowercase = false;
+    }
+});
+
+const numberCheckbox = document.getElementById('numbers');
+numberCheckbox.addEventListener('change', () => {
+    if (numberCheckbox.checked) {
+        includeNumbers = true;
+    } else {
+        includeNumbers = false;
+    }
+});
+
+const symbolsCheckbox = document.getElementById('symbols');
+symbolsCheckbox.addEventListener('change', () => {
+    if (symbolsCheckbox.checked) {
+        includeSymbols = true;
+    } else {
+        includeSymbols = false;
+    }
+});
 
 const difficultyChange = () => {
     const difficultybar = document.getElementById('easy');
@@ -39,18 +68,23 @@ const difficultyChange = () => {
     difficultybar.style.border = 'none';
 }
 
-const generatePassword = () => {
+generateButton.addEventListener('click', ()=>{
     let combinedArray = [];
-    if(includeUppercase)
+    if (includeUppercase)
         combinedArray = combinedArray.concat(uppercaseArray);
-    if(includeLowercase)
+    if (includeLowercase)
         combinedArray = combinedArray.concat(lowercaseArray);
-    if(includeNumbers)
+    if (includeNumbers)
         combinedArray = combinedArray.concat(numbersArray);
-    if(includeSymbols)
+    if (includeSymbols)
         combinedArray = combinedArray.concat(symbolsArray);
 
-    combinedArray.sort(()=> Math.random() - 0.5);
+    if(combinedArray.length === 0){
+        alert("Can't have a password with no characters can we?");
+        return;
+    }
+
+    combinedArray.sort(() => Math.random() - 0.5);
 
     let passwordArray = [];
 
@@ -61,5 +95,4 @@ const generatePassword = () => {
     const passwordHTML = document.getElementById('password');
     password = passwordArray.join('');
     passwordHTML.innerHTML = password;
-
-}
+})

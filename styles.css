@@ -29,6 +29,7 @@ body {
 
 .password-result-container,
 .password-generator-container {
+    position: relative;
     display: flex;
     background-color: #24232b;
     padding: 20px;
@@ -42,6 +43,15 @@ body {
 .password-generator-container {
     flex-direction: column;
 }
+
+/* .toast-message{
+    position: absolute;
+    background-color: white;
+    right: 20px;
+    margin-top: 20px;
+    color: black;
+    padding: 0px 20px;
+} */
 
 .character-length-container {
     display: flex;
@@ -117,13 +127,42 @@ input[type="range"]::-webkit-slider-thumb {
     margin-bottom: 25px;
 }
 
-.password-constraint-checkbox h3{
-    margin-left: 20px;
+.password-constraint-checkbox label{
+    cursor: pointer;
+    /* margin-left: 20px; */
+    display: flex;
+    align-items: center;
 }
 
 input[type="checkbox"]{
     height: 20px;
     width: 20px;
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+}
+
+input[type='checkbox']:checked + label::before{
+    content: '\002714';
+    background-color: #b9efc3;
+    border: 2px solid #b9efc3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #15141c;
+}
+
+.password-constraint-checkbox label::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    margin-right: 15px;
+}
+
+.password-constraint-checkbox label:hover::before,
+.password-constraint-checkbox input[type='checkbox']:hover + label::before {
+    border: 2px solid #b9efc3;
 }
 
 .strength-container{

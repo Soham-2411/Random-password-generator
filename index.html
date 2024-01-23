@@ -15,6 +15,9 @@
             <button onclick="copyPassword()" style="background-color: transparent; border: none;">
                 <i class="fa fa-copy copy-password-icon"></i>
             </button>
+            <!-- <div class="toast-message">
+                <h3>Copied to clipboard!</h3>
+            </div> -->
         </div>
         <div class="password-generator-container">
             <div class="character-length-container">
@@ -25,20 +28,20 @@
             <div class="password-constraint-checkbox">
                 <ul>
                     <li>
-                        <input id="uppercase" type="checkbox" onclick="editConstraints()">
-                        <h3>Include uppercase letters</h2>
+                        <input id="uppercase" type="checkbox" checked>
+                        <label for="uppercase">Include uppercase letters</label>
                     </li>
                     <li>
-                        <input id="lowercase" type="checkbox">
-                        <h3>Include lowercase letters</h2>
+                        <input id="lowercase" name="lowercase" type="checkbox" checked>
+                        <label for="lowercase">Include lowercase letters</label>
                     </li>
                     <li>
-                        <input id="numbers" type="checkbox">
-                        <h3>Include numbers</h2>
+                        <input id="numbers" type="checkbox" checked>
+                        <label for="numbers">Include numbers</label>
                     </li>
                     <li>
                         <input id="symbols" type="checkbox">
-                        <h3>Include symbols</h2>
+                        <label for="symbols">Include symbols</label>
                     </li>
                 </ul>
             </div>
@@ -52,7 +55,7 @@
                     <div id="hard" class="difficulty-level"></div>
                 </div>
             </div>
-            <button onclick="generatePassword()" class="generate-button">
+            <button onclick="generatePassword()" id="generate-button" class="generate-button">
                 GENERATE ->
             </button>
         </div>
